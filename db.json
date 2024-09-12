@@ -1,0 +1,94 @@
+{
+  "inventario": [
+    {
+      "id": "123124",
+      "nombreProducto": "Café en grano",
+      "cantidad": 500,
+      "unidad": "gr"
+    },
+    {
+      "id": "123125",
+      "nombreProducto": "Azúcar",
+      "cantidad": 300,
+      "unidad": "gr"
+    },
+    {
+      "id": "123126",
+      "nombreProducto": "Vasos de papel",
+      "cantidad": 200,
+      "unidad": "unidades"
+    },
+    {
+      "id": "123127",
+      "nombreProducto": "Syrup de vainilla",
+      "cantidad": 150,
+      "unidad": "ml"
+    },
+    {
+      "id": "123128",
+      "nombreProducto": "Cacao en polvo",
+      "cantidad": 120,
+      "unidad": "gr"
+    },
+    {
+      "id": "123129",
+      "nombreProducto": "Té verde",
+      "cantidad": 80,
+      "unidad": "gr"
+    },
+    {
+      "id": "123130",
+      "nombreProducto": "Canela molida",
+      "cantidad": 50,
+      "unidad": "gr"
+    },
+    {
+      "id": "123131",
+      "nombreProducto": "Servilletas",
+      "cantidad": 500,
+      "unidad": "unidades"
+    },
+    {
+      "id": "123132",
+      "nombreProducto": "Miel",
+      "cantidad": 60,
+      "unidad": "ml"
+    },
+    {
+      "id": "123133",
+      "nombreProducto": "Uvas",
+      "cantidad": "3",
+      "unidad": "unidad"
+    },
+    {
+      "id": "123134",
+      "nombreProducto": "Plátano",
+      "cantidad": "10",
+      "unidad": "unidad"
+    },
+    {
+      "id": "123135",
+      "nombreProducto": "Mangos",
+      "cantidad": "23",
+      "unidad": "unidad"
+    },
+    {
+      "id": "123136",
+      "nombreProducto": "Uvas",
+      "cantidad": "23",
+      "unidad": "unidad"
+    },
+    {
+      "id": 1726170574914,
+      "nombreProducto": "Peras",
+      "cantidad": "23",
+      "unidad": "unidad"
+    },
+    {
+      "id": 1726171794120,
+      "nombreProducto": "Leche",
+      "cantidad": "1000",
+      "unidad": "ml"
+    }
+  ]
+}
