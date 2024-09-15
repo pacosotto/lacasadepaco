@@ -1,5 +1,3 @@
-import React from "react";
-
 const Header = () => {
   return (
     <nav className="bg-blue-500">
@@ -9,6 +7,9 @@ const Header = () => {
         </li>
         <li>
           <a href="/">Tomar Orden</a>
+        </li>
+        <li>
+          <a href="/menu">Menú</a>
         </li>
         <li>
           <a href="/inventario">Inventario</a>
