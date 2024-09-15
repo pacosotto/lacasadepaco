@@ -9,6 +9,9 @@ const Inventory = () => {
   const [cantidad, setCantidad] = useState("");
   const [unidad, setUnidad] = useState("");
 
+  const [editando, setEditando] = useState(false);
+  const [productoId, setProductoId] = useState(null);
+
   const obtenerInventario = async () => {
     try {
       const respuesta = await fetch("http://localhost:4000/inventario");
@@ -20,6 +23,7 @@ const Inventory = () => {
   };
 
   const agregarProducto = async (producto) => {
+    producto.id = Date.now().toString();
     try {
       const respuesta = await fetch("http://localhost:4000/inventario", {
         method: "POST",
@@ -54,6 +58,28 @@ const Inventory = () => {
     }
   };
 
+  const actualizarProducto = async (id, productoActualizado) => {
+    try {
+      const respuesta = await fetch(`http://localhost:4000/inventario/${id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(productoActualizado),
+      });
+      const resultado = await respuesta.json();
+
+      setInventario((anteriorInv) =>
+        anteriorInv.map((producto) =>
+          producto.id === id ? resultado : producto
+        )
+      );
+      console.log(inventario);
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
+
   useEffect(() => {
     obtenerInventario();
   }, []);
@@ -67,15 +93,25 @@ const Inventory = () => {
     }
 
     const producto = {
-      id: Date.now(),
       nombreProducto: nombre,
       cantidad,
       unidad,
     };
+
+    if (editando) {
+      console.log("Editando...");
+      console.log(productoId);
+      console.log(producto);
+      actualizarProducto(productoId, producto);
+      setEditando(false);
+      setProductoId(null);
+    } else {
+      agregarProducto(producto);
+    }
+
     setNombre("");
     setCantidad("");
     setUnidad("");
-    agregarProducto(producto);
   };
 
   return (
@@ -160,6 +196,13 @@ const Inventory = () => {
                     <button
                       type="button"
                       className="bg-sky-600 hover:bg-sky-800 text-white p-2 font-semibold rounded-lg"
+                      onClick={() => {
+                        setEditando(true);
+                        setProductoId(id);
+                        setNombre(nombreProducto);
+                        setCantidad(cantidad);
+                        setUnidad(unidad);
+                      }}
                     >
                       Editar
                     </button>
