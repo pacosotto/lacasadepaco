@@ -99,9 +99,6 @@ const Inventory = () => {
     };
 
     if (editando) {
-      console.log("Editando...");
-      console.log(productoId);
-      console.log(producto);
       actualizarProducto(productoId, producto);
       setEditando(false);
       setProductoId(null);
@@ -152,18 +149,23 @@ const Inventory = () => {
             <div className="flex flex-col gap-2">
               <label htmlFor="cantidad">Cantidad del producto</label>
               <input
-                type="numbre"
+                type="number"
+                min="0"
                 id="cantidad"
                 name="cantidad"
                 value={cantidad}
-                className="border w-1/6"
+                className="border w-1/6 p-2"
                 onChange={(e) => setCantidad(e.target.value)}
               />
             </div>
             <input
               type="submit"
-              value="Agregar producto"
-              className="bg-blue-500 text-white rounded-lg w-1/3 py-2 cursor-pointer hover:bg-blue-700"
+              value={editando ? "Actualizar valores" : "Agregar Producto"}
+              className={
+                editando
+                  ? "bg-yellow-500 text-black font-semibold rounded-lg w-1/3 py-2 cursor-pointer hover:bg-yellow-700"
+                  : "bg-blue-500 text-white rounded-lg w-1/3 py-2 cursor-pointer hover:bg-blue-700"
+              }
             />
           </form>
         </div>
