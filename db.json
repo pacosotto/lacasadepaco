@@ -1,4 +1,128 @@
 {
+  "platillos": [
+    {
+      "id" : "123134123134",
+      "nombre" : "Licuado de plátano",
+      "urlImagen" : "/public/licuado.jpg",
+      "precio" : 70,
+      "ingredientes" : [
+        {
+          "id": "123134",
+          "nombreProducto": "Plátano",
+          "cantidadUtilizada": "2",
+          "unidad": "unidad"
+        },
+        {
+          "id": "123125",
+          "nombreProducto": "Azúcar",
+          "cantidadUtilizada": 10,
+          "unidad": "gr"
+        },
+        {
+          "id": 1726171794120,
+          "nombreProducto": "Leche",
+          "cantidadUtilizada": "500",
+          "unidad": "ml"
+        }
+      ] 
+    },
+    {
+      "id" : "987654321",
+      "nombre" : "Tostadas de pollo",
+      "urlImagen" : "/public/licuado.jpg",
+      "precio" : 50,
+      "ingredientes" : [
+        {
+          "id": "987123",
+          "nombreProducto": "Tostadas",
+          "cantidadUtilizada": 3,
+          "unidad": "unidad"
+        },
+        {
+          "id": "654987",
+          "nombreProducto": "Pollo deshebrado",
+          "cantidadUtilizada": 200,
+          "unidad": "gr"
+        },
+        {
+          "id": "654123",
+          "nombreProducto": "Lechuga",
+          "cantidadUtilizada": 50,
+          "unidad": "gr"
+        },
+        {
+          "id": "321654",
+          "nombreProducto": "Crema",
+          "cantidadUtilizada": 30,
+          "unidad": "gr"
+        }
+      ]
+    },
+    {
+      "id" : "456789123",
+      "nombre" : "Ensalada César",
+      "urlImagen" : "/public/licuado.jpg",
+      "precio" : 60,
+      "ingredientes" : [
+        {
+          "id": "456321",
+          "nombreProducto": "Lechuga romana",
+          "cantidadUtilizada": 100,
+          "unidad": "gr"
+        },
+        {
+          "id": "789456",
+          "nombreProducto": "Crutones",
+          "cantidadUtilizada": 50,
+          "unidad": "gr"
+        },
+        {
+          "id": "852963",
+          "nombreProducto": "Pollo a la parrilla",
+          "cantidadUtilizada": 150,
+          "unidad": "gr"
+        },
+        {
+          "id": "147852",
+          "nombreProducto": "Aderezo César",
+          "cantidadUtilizada": 30,
+          "unidad": "ml"
+        }
+      ]
+    },
+    {
+      "id" : "159753258",
+      "nombre" : "Sándwich de jamón",
+      "urlImagen" : "/public/licuado.jpg",
+      "precio" : 40,
+      "ingredientes" : [
+        {
+          "id": "753951",
+          "nombreProducto": "Pan de caja",
+          "cantidadUtilizada": 2,
+          "unidad": "rebanada"
+        },
+        {
+          "id": "951753",
+          "nombreProducto": "Jamón de pavo",
+          "cantidadUtilizada": 50,
+          "unidad": "gr"
+        },
+        {
+          "id": "852456",
+          "nombreProducto": "Queso manchego",
+          "cantidadUtilizada": 30,
+          "unidad": "gr"
+        },
+        {
+          "id": "951654",
+          "nombreProducto": "Mayonesa",
+          "cantidadUtilizada": 20,
+          "unidad": "gr"
+        }
+      ]
+    }
+  ],
   "inventario": [
     {
       "id": "123124",

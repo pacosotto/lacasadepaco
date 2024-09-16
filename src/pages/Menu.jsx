@@ -1,6 +1,24 @@
+import { useState } from "react";
 import Header from "../components/Header";
+import { useEffect } from "react";
 
 const Menu = () => {
+  const [platillos, setPlatillos] = useState(null);
+
+  const obtenerPlatillos = async () => {
+    try {
+      const respuesta = await fetch("http://localhost:4000/platillos");
+      const resultado = await respuesta.json();
+      setPlatillos(resultado);
+    } catch (error) {
+      console.log("Error en obtenerPlatillos: ", error);
+    }
+  };
+
+  useEffect(() => {
+    obtenerPlatillos();
+  }, []);
+
   return (
     <>
       <Header />
@@ -41,6 +59,33 @@ const Menu = () => {
           </div>
           <div></div>
         </form>
+
+        <section className="min-h-screen flex flex-col items-center gap-10 m-4">
+          <h1 className="text-4xl font-semibold">Platillos: </h1>
+          <div className="grid grid-flow-col gap-10 m-10 w-5/6">
+            {platillos?.map((platillo) => {
+              return (
+                <article
+                  key={platillo.id}
+                  className="border flex flex-col rounded-lg items-center shadow-md hover:scale-110 transition ease-in-out"
+                >
+                  <img
+                    src={platillo.urlImagen}
+                    alt=""
+                    className="rounded-t-lg"
+                  />
+                  <h3 className="text-lg font-semibold p-2 text-center">
+                    {platillo.nombre}
+                  </h3>
+                  <p className="p-2">
+                    Precio:{" "}
+                    <span className="font-semibold">${platillo.precio}</span>
+                  </p>
+                </article>
+              );
+            })}
+          </div>
+        </section>
       </main>
     </>
   );
