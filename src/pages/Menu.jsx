@@ -3,7 +3,11 @@ import Header from "../components/Header";
 import { useEffect } from "react";
 
 const Menu = () => {
-  const [platillos, setPlatillos] = useState(null);
+  const [platillos, setPlatillos] = useState([]);
+  const [nombre, setNombre] = useState("");
+  const [url, setUrl] = useState("");
+  const [precio, setPrecio] = useState("");
+  //const [ingredientes, setIngredientes] = useState([])
 
   const obtenerPlatillos = async () => {
     try {
@@ -15,6 +19,33 @@ const Menu = () => {
     }
   };
 
+  /*
+  const agregarPlatillo = async(platillo) => {
+    try {
+      const respuesta = await fetch("http://localhost:4000/platillos", {
+        method: "POST",
+        headers: {
+          "Content-Type" : "application/json",
+        },
+        body: JSON.stringify(platillo)
+      })
+      const resultado = await respuesta.json();
+      setPlatillos(anteriorPlatillos => [...anteriorPlatillos, resultado]);
+    } catch (error) {
+      console.log("Error en agregarPlatillo: ", error);
+    }
+  }*/
+
+  const handleSubmitPlatillo = (e) => {
+    e.preventDefault();
+
+    if ([nombre, url, precio].includes("")) {
+      console.log(
+        "Debes rellenar todos los campos y seleccionar al menos 3 ingredientes"
+      );
+    }
+  };
+
   useEffect(() => {
     obtenerPlatillos();
   }, []);
@@ -23,18 +54,39 @@ const Menu = () => {
     <>
       <Header />
       <main className="min-h-screen">
-        <form className="flex flex-col m-10 gap-4">
+        <form
+          className="flex flex-col m-10 gap-4"
+          onSubmit={handleSubmitPlatillo}
+        >
           <div className="flex flex-col gap-2">
             <label htmlFor="nombre">Nombre del platillo:</label>
-            <input type="text" name="nombre" id="nombre" className="border" />
+            <input
+              type="text"
+              name="nombre"
+              id="nombre"
+              className="border"
+              onChange={(e) => setNombre(e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
-            <label htmlFor="imagen">Foto del platillo:</label>
-            <input type="file" name="imagen" id="imagen" className="border" />
+            <label htmlFor="imagen">Url de Foto del platillo:</label>
+            <input
+              type="text"
+              name="imagen"
+              id="imagen"
+              className="border"
+              onChange={(e) => setUrl(e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2">
             <label htmlFor="precio">Precio:</label>
-            <input type="number" name="precio" id="precio" className="border" />
+            <input
+              type="number"
+              name="precio"
+              id="precio"
+              className="border"
+              onChange={(e) => setPrecio(e.target.value)}
+            />
           </div>
           <div className="flex flex-col gap-2 w-3/6">
             <label htmlFor="ingredientes">Ingredientes:</label>
@@ -58,6 +110,11 @@ const Menu = () => {
             </button>
           </div>
           <div></div>
+          <input
+            type="submit"
+            value="Agregar platillo al menú"
+            className="bg-yellow-300 font-semibold w-2/6 p-2 rounded-lg hover:bg-yellow-600 cursor-pointer"
+          />
         </form>
 
         <section className="min-h-screen flex flex-col items-center gap-10 m-4">
