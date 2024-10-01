@@ -214,5 +214,88 @@
       "cantidad": "1000",
       "unidad": "ml"
     }
+  ],
+  "menu": [
+    {
+      "id": 1,
+      "name": "Espresso",
+      "ingredients": [
+        "Shot de espresso"
+      ],
+      "price": 40,
+      "imageUrl": "https://i0.wp.com/coffeeculture.asia/wp-content/uploads/2022/05/Espresso-coffee-Coffee-Culture-Thailand.jpg?fit=512%2C512&ssl=1"
+    },
+    {
+      "id": 2,
+      "name": "Americano",
+      "ingredients": [
+        "Shot de espresso",
+        "Agua caliente"
+      ],
+      "price": 45,
+      "imageUrl": "https://www.elglobo.com.mx/cdn/shop/products/americano-1.jpg?v=1618806696"
+    },
+    {
+      "id": 3,
+      "name": "Cappuccino",
+      "ingredients": [
+        "Shot de espresso",
+        "Leche espumada",
+        "Espuma de leche"
+      ],
+      "price": 50,
+      "imageUrl": "https://www.huleymantel.com/uploads/s1/44/09/69/alba-54.webp"
+    },
+    {
+      "id": 4,
+      "name": "Latte",
+      "ingredients": [
+        "Shot de espresso",
+        "Leche vaporizada"
+      ],
+      "price": 55,
+      "imageUrl": "https://www.allrecipes.com/thmb/Wh0Qnynwdxok4oN0NZ1Lz-wl0A8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/9428203-9d140a4ed1424824a7ddd358e6161473.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Flat White",
+      "ingredients": [
+        "Shot de espresso",
+        "Leche vaporizada"
+      ],
+      "price": 50,
+      "imageUrl": "https://cafeconpan.mx/wp-content/uploads/2024/03/flat-white.png"
+    },
+    {
+      "id": 6,
+      "name": "Macchiato",
+      "ingredients": [
+        "Shot de espresso",
+        "Espuma de leche"
+      ],
+      "price": 45,
+      "imageUrl": "https://athome.starbucks.com/sites/default/files/styles/recipe_banner_xlarge/public/2024-05/CaramelMacchiato_RecipeHeader_848x539_%402x.jpg.webp?itok=jO6d0gba"
+    },
+    {
+      "id": 7,
+      "name": "Mocha",
+      "ingredients": [
+        "Shot de espresso",
+        "Leche vaporizada",
+        "Sirope de chocolate"
+      ],
+      "price": 60,
+      "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/2/2021/11/Mocha-1fc71f7.png?quality=90&resize=556,505"
+    },
+    {
+      "id": 8,
+      "name": "Latte Deslactosado",
+      "ingredients": [
+        "Shot de espresso",
+        "Leche deslactosada vaporizada"
+      ],
+      "price": 60,
+      "imageUrl": "https://placerydelirio.com/cdn/shop/products/Latte-de-vainilla-caliente-12oz-_354ml_-02.jpg?v=1601057111"
+    }
   ]
 }
