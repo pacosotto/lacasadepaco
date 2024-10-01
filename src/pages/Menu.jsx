@@ -3,141 +3,44 @@ import Header from "../components/Header";
 import { useEffect } from "react";
 
 const Menu = () => {
-  const [platillos, setPlatillos] = useState([]);
-  const [nombre, setNombre] = useState("");
-  const [url, setUrl] = useState("");
-  const [precio, setPrecio] = useState("");
-  //const [ingredientes, setIngredientes] = useState([])
+  const [menu, setMenu] = useState([]);
 
-  const obtenerPlatillos = async () => {
+  const obtenerMenu = async () => {
     try {
-      const respuesta = await fetch("http://localhost:4000/platillos");
+      const respuesta = await fetch("http://localhost:4000/menu");
       const resultado = await respuesta.json();
-      setPlatillos(resultado);
+      setMenu(resultado);
     } catch (error) {
-      console.log("Error en obtenerPlatillos: ", error);
-    }
-  };
-
-  /*
-  const agregarPlatillo = async(platillo) => {
-    try {
-      const respuesta = await fetch("http://localhost:4000/platillos", {
-        method: "POST",
-        headers: {
-          "Content-Type" : "application/json",
-        },
-        body: JSON.stringify(platillo)
-      })
-      const resultado = await respuesta.json();
-      setPlatillos(anteriorPlatillos => [...anteriorPlatillos, resultado]);
-    } catch (error) {
-      console.log("Error en agregarPlatillo: ", error);
-    }
-  }*/
-
-  const handleSubmitPlatillo = (e) => {
-    e.preventDefault();
-
-    if ([nombre, url, precio].includes("")) {
-      console.log(
-        "Debes rellenar todos los campos y seleccionar al menos 3 ingredientes"
-      );
+      console.log("Error en obtenerMenu: ", error);
     }
   };
 
   useEffect(() => {
-    obtenerPlatillos();
+    obtenerMenu();
   }, []);
 
   return (
     <>
       <Header />
       <main className="min-h-screen">
-        <form
-          className="flex flex-col m-10 gap-4"
-          onSubmit={handleSubmitPlatillo}
-        >
-          <div className="flex flex-col gap-2">
-            <label htmlFor="nombre">Nombre del platillo:</label>
-            <input
-              type="text"
-              name="nombre"
-              id="nombre"
-              className="border"
-              onChange={(e) => setNombre(e.target.value)}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="imagen">Url de Foto del platillo:</label>
-            <input
-              type="text"
-              name="imagen"
-              id="imagen"
-              className="border"
-              onChange={(e) => setUrl(e.target.value)}
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label htmlFor="precio">Precio:</label>
-            <input
-              type="number"
-              name="precio"
-              id="precio"
-              className="border"
-              onChange={(e) => setPrecio(e.target.value)}
-            />
-          </div>
-          <div className="flex flex-col gap-2 w-3/6">
-            <label htmlFor="ingredientes">Ingredientes:</label>
-            <select
-              name="ingredientes"
-              id="ingredientes"
-              className="border p-2"
-            >
-              <option value="">Selecciona un ingrediente</option>
-            </select>
-            <input
-              type="number"
-              placeholder="Ingresa la cantidad"
-              className="border p-2"
-            />
-            <button
-              type="button"
-              className="bg-blue-500 text-white rounded-lg p-2"
-            >
-              Agregar ingrediente
-            </button>
-          </div>
-          <div></div>
-          <input
-            type="submit"
-            value="Agregar platillo al menú"
-            className="bg-yellow-300 font-semibold w-2/6 p-2 rounded-lg hover:bg-yellow-600 cursor-pointer"
-          />
-        </form>
-
         <section className="min-h-screen flex flex-col items-center gap-10 m-4">
-          <h1 className="text-4xl font-semibold">Platillos: </h1>
-          <div className="grid grid-flow-col gap-10 m-10 w-5/6">
-            {platillos?.map((platillo) => {
+          <h1 className="text-4xl font-semibold">Menú: </h1>
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-10 m-auto mt-0 w-5/6">
+            {menu.map((platillo) => {
               return (
                 <article
                   key={platillo.id}
-                  className="border flex flex-col rounded-lg items-center shadow-md hover:scale-110 transition ease-in-out"
+                  className="bg-white border border-gray-700 py-2 text-center rounded-lg shadow-md"
                 >
-                  <img
-                    src={platillo.urlImagen}
-                    alt=""
-                    className="rounded-t-lg"
-                  />
-                  <h3 className="text-lg font-semibold p-2 text-center">
-                    {platillo.nombre}
-                  </h3>
-                  <p className="p-2">
-                    Precio:{" "}
-                    <span className="font-semibold">${platillo.precio}</span>
-                  </p>
+                  <h2 className="font-semibold text-2xl py-2">{platillo.name}</h2>
+                  <img src={platillo.imageUrl} alt="" className="h-48 w-full object-cover" />
+                  <p className="py-2">Precio: ${platillo.price}</p>
+                  <ul className="list-disc pl-5 py-2 text-left mx-4">
+                  <p>Ingredientes: </p>
+                    {platillo.ingredients.map((ingrediente, index) => (
+                      <li key={index}>{ingrediente}</li> // Usamos el índice como clave si los ingredientes no tienen un id único
+                    ))}
+                  </ul>
                 </article>
               );
             })}
